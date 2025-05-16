@@ -24,18 +24,6 @@ export class AuthService {
     });
   }
 
-  // async register(userData: any): Promise<any> {
-  //   return axios.post(`${this.apiURL}/register`, userData, {
-  //     withCredentials: true,
-  //   });
-  // }
-
-  // async login(credentials: any): Promise<any> {
-  //   return axios.post(`${this.apiURL}/login`, credentials, {
-  //     withCredentials: true,
-  //   });
-  // }
-
   logout() {
     sessionStorage.removeItem('token');
     this.router.navigate(['/login']);
