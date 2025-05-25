@@ -15,6 +15,24 @@ export const routes: Routes = [
       import('../components/dashboard.component').then((m) => m.DashboardComp),
     canActivate: [AuthGuard],
   },
+   {
+    path: 'sale-detail/:id',
+    loadComponent: () =>
+      import('../components/sale-detail.component').then((m) => m.SaleDetailComponent),
+    canActivate: [AuthGuard],
+  },
+   {
+    path: 'add-sale',
+    loadComponent: () =>
+      import('../components/add-sales-form.component').then((m) => m.AddSalesFormComponent),
+    canActivate: [AuthGuard],
+  },
+   {
+    path: 'edit-sale/:id',
+    loadComponent: () =>
+      import('../components/edit-sales-form.component').then((m) => m.EditSaleComponent),
+    canActivate: [AuthGuard],
+  },
   {
     path: '**',
     component: LoginComp,
