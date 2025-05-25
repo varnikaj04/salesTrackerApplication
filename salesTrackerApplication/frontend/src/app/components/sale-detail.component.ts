@@ -49,95 +49,143 @@ import { environment } from './environment';
       </div>
     </div>
   `,
-  styles: [
-  `
-    .detail-container {
-      display: flex;
-      justify-content: center;
-      padding: 40px 20px;
-      background-color: rgb(162, 160, 160);
-      min-height: 100vh;
-      margin-top: 0px;
-    }
+ 
+styles: [`
+  :host {
+    display: block;
+    background: linear-gradient(135deg, #1c0823, #3c0a3e, #ff7e42);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    color: #fdfcfa;
+  }
 
-    .detail-card {
-      max-width: 900px;
-      width: 100%;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-      overflow: hidden;
-      padding: 32px; 
-      animation: fadeIn 0.4s ease-in-out;
-    }
 
-    .vehicle-img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 24px; 
-    }
+  .navbar {
+    background-color: rgba(28, 8, 35, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    padding: 14px 28px;
+  }
 
-    .info-section h2 {
-      font-size: 32px; 
-      font-weight: 600;
-      color: #2d3436;
-      margin-bottom: 16px; 
-      margin-top: 16px; 
-    }
-
-    .info-section p {
-      font-size: 17px; 
-      margin-bottom: 9px; 
-      color: #333;
-    }
-
-    .action-buttons {
-      text-align: right;
-    }
-
-    .navbar {
-    background-color: #ffffff;
-    border-bottom: 1px solid #dedede;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-    padding: 12px 24px;
-    }
-
-    .navbar-brand {
-    font-weight: 700;
-    font-size: 1.6rem;
-    letter-spacing: 0.6px;
-    color: #e50914 !important;
-    cursor: pointer;
+  .navbar-brand {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    color: #ff7e42 !important;
+    text-shadow: 0 0 10px rgba(255, 126, 66, 0.6);
     text-transform: uppercase;
-    }
+    cursor: pointer;
+  }
 
-    .navbar .btn-danger {
-    background-color: #e50914;
-    border-color: #e50914;
+  .navbar .btn-danger {
+    background-color: #ff7e42;
+    border-color: #ff7e42;
     font-weight: 700;
     color: white;
+    box-shadow: 0 0 12px rgba(255, 126, 66, 0.3);
   }
 
   .navbar .btn-danger:hover {
-    background-color: #bf0811;
-    border-color: #bf0811;
-    color: white;
+    background-color: #e05a1c;
+    border-color: #e05a1c;
   }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+
+  .detail-container {
+    display: flex;
+    justify-content: center;
+    padding: 48px 24px;
+    background-color: transparent;
+    min-height: 100vh;
+  }
+
+
+  .detail-card {
+    max-width: 960px;
+    width: 100%;
+    background: rgba(34, 10, 40, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255, 100, 60, 0.15);
+    padding: 36px;
+    color: #fefefe;
+    animation: fadeIn 0.6s ease-in-out;
+    backdrop-filter: blur(5px);
+  }
+
+  /* Image */
+  .vehicle-img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .vehicle-img:hover {
+    transform: scale(1.015);
+    box-shadow: 0 12px 26px rgba(255, 126, 66, 0.3);
+  }
+
+
+  .info-section h2 {
+    font-size: 34px;
+    font-weight: 800;
+    color: #ff7e42;
+    margin: 20px 0 12px;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 6px rgba(255, 126, 66, 0.5);
+  }
+
+  .info-section p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #e9e9e9;
+    line-height: 1.7;
+  }
+
+
+  .action-buttons {
+    text-align: right;
+    margin-top: 24px;
+  }
+
+  .action-buttons .btn {
+    margin-left: 12px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .action-buttons .btn-danger {
+    background-color: #ff7043;
+    border-color: #ff7043;
+  }
+
+  .action-buttons .btn-danger:hover {
+    background-color: #d8521a;
+    border-color: #d8521a;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
     }
-  `,
-],
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`]
+
+
+  
+
 })
 export class SaleDetailComponent implements OnInit {
   sale: any;
