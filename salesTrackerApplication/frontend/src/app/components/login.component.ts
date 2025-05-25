@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
     <div class="login-wrapper">
       <div class="content-container">
         <div class="form-section">
-          <h1 class="brand-title">Supercar Sales Tracker</h1>
+          <h1 class="brand-title">Vehicle Sales Tracker</h1>
           <h2 class="form-title">Welcome Back!</h2>
 
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -49,7 +49,7 @@ import { Router } from '@angular/router';
         </div>
 
         <div class="image-section">
-          <img src="/image2.png" alt="Supercar" />
+          <img src="/image6.jpg" alt="Car" />
         </div>
       </div>
     </div>
@@ -58,14 +58,13 @@ import { Router } from '@angular/router';
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 
     .login-wrapper {
-      background-image: url('/image5.png'); 
+      background-image: url('/image3.png');
       background-size: cover;
       background-position: center;
       backdrop-filter: blur(6px);
       min-height: 100vh;
       display: flex;
       align-items: center;
-      justify-content: center;
       padding: 2rem;
       font-family: 'Segoe UI', sans-serif;
     }
@@ -73,11 +72,13 @@ import { Router } from '@angular/router';
     .content-container {
       display: flex;
       flex-direction: row;
-      background: rgba(17, 17, 17, 0.97);
+      background: rgba(34, 9, 44, 0.92);
       border-radius: 12px;
       overflow: hidden;
+      margin-left: 100px;
       max-width: 960px;
       width: 100%;
+      height: 480px;
       box-shadow: 0 0 20px rgba(229, 9, 20, 0.03);
     }
 
@@ -169,6 +170,7 @@ import { Router } from '@angular/router';
       font-size: 1rem;
       border-radius: 6px;
       transition: background-color 0.3s;
+      margin-top:0.75rem;
     }
 
     .submit-button:hover {
@@ -231,3 +233,4 @@ export class LoginComp {
     }
   }
 }
+
