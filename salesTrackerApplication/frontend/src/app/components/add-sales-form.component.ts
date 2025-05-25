@@ -13,6 +13,14 @@ import { ActivatedRoute, Router } from '@angular/router';
     HttpClientModule,
   ],
   template: `
+     <div class="host">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+      <a class="navbar-brand" (click)="goToHome()">Automobile Sales Tracker</a>
+      <div class="ms-auto">
+        <button class="btn btn-danger" (click)="logout()">Logout</button>
+      </div>
+    </nav>
+
      <div class="container mt-4">
       <h2>Add a Sale</h2>
       <form [formGroup]="saleForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
@@ -83,69 +91,117 @@ import { ActivatedRoute, Router } from '@angular/router';
           </div>
         </div>
 
-        <!-- <div class="mb-3">
-          <label class="form-label">Sale Date</label>
-          <input formControlName="saleDate" type="date" class="form-control" />
-          <div *ngIf="saleForm.get('saleDate')?.touched && saleForm.get('saleDate')?.invalid">
-            <small class="text-danger">Sale Date is required.</small>
-          </div>
-        </div> -->
+     
 
         <button class="btn btn-primary" type="submit" [disabled]="saleForm.invalid">Submit</button>
       </form>
     </div>
+     </div>
   `,
   styles: [`
-  .container {
-    max-width: 750px;
-    margin: 0 auto;
-    padding: 3rem 2rem;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  .host{
+    background: linear-gradient(135deg,rgb(78, 40, 111), #5e335d, #ec704c);
+  }
+ .container {
+  max-width: 750px;
+  margin: 2rem auto;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, rgba(24, 10, 36, 0.95), rgba(66, 28, 49, 0.95));
+  border-radius: 16px;
+  box-shadow:
+    0 12px 32px rgba(255, 105, 60, 0.15),
+    0 4px 16px rgba(255, 142, 105, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f3e8f4;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease-in-out;
+}
+
+
+  .navbar {
+    background-color: rgba(28, 8, 35, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    padding: 14px 28px;
   }
 
-  h2 {
-    color: #2d3436;
-    font-size: 1.8rem;
+  .navbar-brand {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    color: #ff7e42 !important;
+    text-shadow: 0 0 10px rgba(255, 126, 66, 0.6);
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .navbar .btn-danger {
+    background-color: #ff7e42;
+    border-color: #ff7e42;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    color: white;
+    box-shadow: 0 0 12px rgba(255, 126, 66, 0.3);
+  }
+
+  .navbar .btn-danger:hover {
+    background-color: #e05a1c;
+    border-color: #e05a1c;
+  }
+
+
+  h2 {
+    color: #ffb366;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.8rem;
     text-align: center;
+    text-shadow: 0 0 6px rgba(255, 145, 0, 0.35);
   }
 
   .form-label {
     font-weight: 600;
-    color: #333;
+    color: #ffd2a6;
     margin-bottom: 0.5rem;
   }
 
   .form-control {
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ff8b73;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.65rem 0.75rem;
     font-size: 1rem;
-    transition: border-color 0.2s ease-in-out;
+    color: #fff;
+    transition: border-color 0.2s ease-in-out, background-color 0.3s;
+  }
+
+  .form-control:focus {
+    border-color: #ffa07a;
+    background-color: rgba(255, 255, 255, 0.08);
+    outline: none;
   }
 
   small.text-danger {
     font-size: 0.85rem;
-    color: #e50914;
+    color: #ff4d4d;
   }
 
   .btn-primary {
-    background-color: #e50914;
+    background: linear-gradient(to right, #ff6f61, #ff914d);
     border: none;
     padding: 10px 24px;
     font-weight: 600;
     font-size: 1rem;
-    border-radius: 8px;
+    border-radius: 10px;
     color: #fff;
-    transition: background-color 0.2s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 111, 97, 0.4);
   }
 
   .btn-primary:hover {
-    background-color: rgb(188, 16, 24);
+    background: linear-gradient(to right, #d65050, #ff7e42);
+    box-shadow: 0 0 16px rgba(255, 126, 66, 0.6);
   }
 
   @media (max-width: 576px) {
@@ -154,6 +210,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     }
   }
 `]
+
 
 })
 export class AddSalesFormComponent implements OnInit {
@@ -164,6 +221,16 @@ export class AddSalesFormComponent implements OnInit {
   constructor(private http: HttpClient,private route: ActivatedRoute,
     private authService: AuthService,
     private router: Router) {}
+
+
+      logout(): void {
+    this.authService.logout();
+  }
+
+  goToHome(): void {
+    this.router.navigate(['/home']);
+  }
+  
 
   ngOnInit(): void {
 
@@ -182,7 +249,7 @@ export class AddSalesFormComponent implements OnInit {
       vehiclemodel: new FormControl('', Validators.required),
       vehicleyear: new FormControl('', [Validators.required, Validators.min(1900), Validators.max(new Date().getFullYear())]),
       saleamount: new FormControl('', [Validators.required, Validators.min(1)]),
-    //   saleDate: new FormControl('', Validators.required),
+
     });
   }
 
@@ -202,6 +269,8 @@ export class AddSalesFormComponent implements OnInit {
     Object.entries(formValue).forEach(([key, value]) => {
       formData.append(key, value as string);
     });
+
+
 
     formData.append('salespersonid', this.currentUser._id);
 

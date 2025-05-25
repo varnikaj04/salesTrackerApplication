@@ -40,7 +40,7 @@ import { environment } from './environment';
                 <strong>Amount:</strong> ₹{{ sale.saleamount }} <br />
                 <strong>Date:</strong> {{ sale.saledate | date:'longDate' }}
               </p>
-              <button class="btn btn-outline-primary btn-sm" (click)="viewDetails(sale._id)">
+              <button class="btn btn-primary btn-sm" (click)="viewDetails(sale._id)">
                 View Details
               </button>
             </div>
@@ -53,140 +53,154 @@ import { environment } from './environment';
       </div>
     </div>
   `,
-  styles: [`
+  styles:`
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 
-  :host {
-    display: block;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f9f9f9, #e6e6e6); 
-    font-family: 'Roboto', sans-serif; 
-    padding-bottom: 60px;
-  }
-
-
-  .container {
-    background-color: #ffffff;
-    padding: 2rem 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-    margin-top: 30px;
-    max-width: 1250px;
-  }
+:host {
+  display: block;
+  min-height: 100vh;
+  background: linear-gradient(135deg,rgb(78, 40, 111), #5e335d, #ec704c);
+  font-family: 'Segoe UI', sans-serif;
+  color: #f2f2f2;
+  padding-bottom: 60px;
+}
 
 
-  h3 {
-    font-style: italic;
-    font-weight: 700;
-    color: #2c3e50;
-    font-size: 1.9rem;
-  }
+.navbar {
+  background: rgba(20, 14, 25, 0.85);
+  padding: 1rem 2rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
-
-  .navbar {
-    background: #ffffff;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    padding: 1rem 2rem;
-  }
 
   .navbar-brand {
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    font-size: 1.5rem;
-    color: #e50914 ;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    color: #ff7e42 !important;
+    text-shadow: 0 0 10px rgba(255, 126, 66, 0.6);
     text-transform: uppercase;
     cursor: pointer;
   }
 
-  .navbar .btn {
-    font-weight: 600;
-    border-radius: 8px;
-    padding: 8px 18px;
-    font-size: 1rem;
-  }
+.navbar .btn {
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  color: #ffffff;
+}
 
-  .navbar .btn-outline-light {
-    color: #2c3e50;
-    border-color: #ccc;
-    background-color: #fff;
-    transition: all 0.3s;
-  }
+.navbar .btn-outline-light {
+  background-color: transparent;
+  border: 1px solid #999;
+  color: #f2f2f2;
+  transition: all 0.3s;
+}
 
-  .navbar .btn-outline-light:hover {
-    background-color: #f1f1f1;
-    border-color: #b2b2b2;
-    color: #e50914;
-  }
+.navbar .btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #f8675e;
+  color: #f8675e;
+}
 
-  .navbar .btn-danger {
-    background-color: #e50914;
-    border-color: #e50914;
-    font-weight: 700;
-    color: white;
-  }
+.navbar .btn-danger {
+  background-color: #f8675e;
+  border: none;
+  color: white;
+}
 
-  .navbar .btn-danger:hover {
-    background-color: #bf0811;
-    border-color: #bf0811;
-    color: white;
+.navbar .btn-danger:hover {
+  background-color: #c03a2b;
+}
+
+
+.container {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 0 28px rgba(0, 0, 0, 0.25);
+  margin: 2rem auto;
+  max-width: 1250px;
+}
+
+h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: #ff6b5c;
+  margin-bottom: 1.5rem;
+}
+
+
+.card {
+  border-radius: 14px;
+  background: rgba(44, 20, 59, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(255, 104, 91, 0.2);
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-body {
+  padding: 1rem 1.25rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ff6b5c;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #ddd;
+}
+
+.text-muted {
+  font-style: italic;
+  font-size: 1rem;
+  color: #bbb;
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
   }
 
   .card {
-    border-radius: 14px;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    background-color: #ffffff;
-    border: 1px solid #eee;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.25rem;
   }
 
-  .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-  }
-
-  .card-img-top {
-    height: 180px;
-    object-fit: cover;
-    border-bottom: 1px solid #eee;
-  }
-
-  .card-body {
-    padding: 1rem 1.25rem;
-  }
-
-  .card-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #2d3436;
+  .navbar .btn {
     margin-bottom: 0.5rem;
   }
+}
 
-  .card-text {
-    font-size: 0.95rem;
-    color: #34495e;
-  }
-
-  .text-muted {
-    font-style: italic;
-    font-size: 1rem;
-    color: #999;
-  }
-
-  @media (max-width: 768px) {
-    .container {
-      padding: 1rem;
-    }
-
-    .card {
-      margin-bottom: 1.25rem;
-    }
-
-    .navbar .btn {
-      margin-bottom: 0.5rem;
-    }
-  }
-`]
+  `
 
 
 
